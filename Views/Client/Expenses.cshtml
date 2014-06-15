@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FBPortal.Domain.Entities.ClientPeriod>
+
+@{
+    ViewBag.Title = "Expenses";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Expenses</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Period.PeriodId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalExpense)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalIncome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Balance)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Period.PeriodId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalExpense)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalIncome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Balance)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ClientPeriodId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ClientPeriodId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ClientPeriodId })
+        </td>
+    </tr>
+}
+
+</table>

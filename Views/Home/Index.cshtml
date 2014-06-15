@@ -1,0 +1,35 @@
+﻿@model IEnumerable<FBPortal.Domain.Entities.Invoice>
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="container">
+    <table class="table table-striped table-condensed table-hover">
+        <thead>
+            <tr>
+                <td class=".col-md-4">
+                    Name
+                </td>
+                <td class=".col-md-4">
+                    Vendor
+                </td>
+                <td class=".col-md-4">Date Added</td>
+                <td class=".col-md-4">
+                    Amount Paid
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var invoice in Model)
+            {
+            <tr>
+                <td>@invoice.Name</td>
+                <td>@invoice.Vendor</td>
+                <td>@invoice.DateAdded</td>
+                <td>@invoice.AmountPaid.ToString("c")</td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

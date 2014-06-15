@@ -1,0 +1,73 @@
+﻿@model FBPortal.Domain.Entities.Invoice
+
+@{
+    ViewBag.Title = "Create Client Invoice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Create Invoice</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Balance: @ViewBag.ClientBalance</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @if (TempData["SuccessMessage"] != null) { 
+        <div>
+            @TempData["SuccessMessage"] 
+        </div>
+        }
+        
+        <div class="form-group">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Vendor, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Vendor)
+                    @Html.ValidationMessageFor(model => model.Vendor)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AmountPaid, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AmountPaid)
+                    @Html.ValidationMessageFor(model => model.AmountPaid)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DateAdded, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DateAdded)
+                    @Html.ValidationMessageFor(model => model.DateAdded)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to details", "Details", new { id = @Model.ClientId })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
