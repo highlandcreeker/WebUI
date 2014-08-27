@@ -1,0 +1,12 @@
+﻿@model FBPortal.Domain.Entities.Product
+<tr>
+    <td>@Model.Number</td>
+    <td>@Model.Description</td>
+    <td>@Model.Price.ToString("c")</td>
+    <td>@Html.ActionLink("Edit", "Edit", new { id = @Model.ID })</td>
+    <td>@Html.ActionLink("Details", "Details", new { id = @Model.ID, returnUrl = Request.Url.PathAndQuery }) </td>
+    <td>@Html.ActionLink("Delete", "Delete", new { id = @Model.ID })</td>
+
+
+</tr>
+

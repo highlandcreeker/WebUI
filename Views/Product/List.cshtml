@@ -1,0 +1,46 @@
+﻿@model FBPortal.WebUI.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Number
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Price
+                </th>
+                <th colspan="3" align="center">Action</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var p in Model.Products)
+            {
+                Html.RenderPartial("ProductSummary", p);
+            }
+        </tbody>
+
+    </table>
+
+</div>
+
+<div class="pager">
+
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+</div>

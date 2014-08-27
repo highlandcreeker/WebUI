@@ -10,17 +10,20 @@ using System.Web.Mvc;
 
 using FBPortal.Domain.Entities;
 using FBPortal.Domain.Concrete;
+using FBPortal.Domain.Abstract;
 
 namespace FBPortal.WebUI.Controllers
 {
     public class VendorController : Controller
     {
-        private VendorRepository vr = new VendorRepository();
+        private IVendorRepository repository;
+
+        public VendorController(IVendorRepository repo) { this.repository = repo; }
 
         // GET: /Vendor/
         public async Task<ActionResult> Index()
         {
-            return View(await vr.Vendors.ToListAsync());
+            return View(await repository.Vendors.ToListAsync());
         }
 
         // GET: /Vendor/Details/5
@@ -30,7 +33,7 @@ namespace FBPortal.WebUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vendor vendor = await vr.Vendors.SingleAsync(v => v.ID == id);
+            Vendor vendor = await repository.Vendors.SingleAsync(v => v.ID == id);
             if (vendor == null)
             {
                 return HttpNotFound();
@@ -53,7 +56,7 @@ namespace FBPortal.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                Vendor v = await vr.Create(vendor);
+                Vendor v = await repository.Create(vendor);
                 return RedirectToAction("Index");
             }
 
@@ -67,7 +70,7 @@ namespace FBPortal.WebUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vendor vendor = await vr.Vendors.SingleAsync(v => v.ID == id);
+            Vendor vendor = await repository.Vendors.SingleAsync(v => v.ID == id);
             if (vendor == null)
             {
                 return HttpNotFound();
@@ -84,7 +87,7 @@ namespace FBPortal.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                await vr.Edit(vendor);
+                await repository.Edit(vendor);
                 return RedirectToAction("Index");
             }
             return View(vendor);
@@ -98,7 +101,7 @@ namespace FBPortal.WebUI.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Vendor vendor = await vr.Vendors.SingleAsync(v => v.ID == id);
+            Vendor vendor = await repository.Vendors.SingleAsync(v => v.ID == id);
 
             if (vendor == null)
             {
@@ -112,7 +115,7 @@ namespace FBPortal.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            await vr.Remove(id);
+            await repository.Remove(id);
             return RedirectToAction("Index");
         }
 

@@ -1,0 +1,84 @@
+﻿@model FBPortal.WebUI.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => @Model.Product.Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => @Model.Product.Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => @Model.Product.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => @Model.Product.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => @Model.Product.Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => @Model.Product.Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => @Model.Product.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => @Model.Product.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => @Model.Product.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => @Model.Product.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => @Model.Product.PackageType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => @Model.Product.PackageType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => @Model.Product.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => @Model.Product.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => @Model.Product.DateAdded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => @Model.Product.DateAdded)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = @Model.Product.ID}) |
+    <a href="@Model.ReturnUrl">Back to List</a>
+    <!--@Html.ActionLink("Back to List", "List")-->
+</p>
