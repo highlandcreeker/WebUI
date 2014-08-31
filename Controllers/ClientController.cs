@@ -43,7 +43,7 @@ namespace FBPortal.WebUI.Controllers
                 return HttpNotFound();
             }
 
-            ClientViewModel vm = new ClientViewModel { ClientId = client.ClientId, Name = client.Name, Balance = client.Balance.ToString("c"), Invoices =client.Invoices };
+            ClientViewModel vm = new ClientViewModel { ClientId = client.ClientId, Name = client.Name, Balance = client.Balance.ToString("c"), Invoices = client.Invoices };
             return View(vm);
         }
 
@@ -145,12 +145,13 @@ namespace FBPortal.WebUI.Controllers
             {
                 await repository.CreateInvoice(invoice);
             }
-            @TempData.Add("SuccessMessage",invoice.Name + " created successfully.");
+            @TempData.Add("SuccessMessage", invoice.Name + " created successfully.");
             return RedirectToAction("CreateInvoice", new { clientId = clientId });
         }
 
-        public async Task<ActionResult> Expenses(Guid clientId) {
-            var client = await repository.Clients.SingleAsync(c=>c.ClientId == clientId);
+        public async Task<ActionResult> Expenses(Guid clientId)
+        {
+            var client = await repository.Clients.SingleAsync(c => c.ClientId == clientId);
             var expenses = client.ClientPeriods;
 
             return new HttpNotFoundResult();

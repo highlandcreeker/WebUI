@@ -26,6 +26,8 @@ namespace FBPortal.WebUI.Controllers
             return View(invoices);
         }
 
+
+
         public PartialViewResult ClientSummary()
         {
             

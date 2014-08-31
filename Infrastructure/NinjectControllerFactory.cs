@@ -45,6 +45,7 @@ namespace FBPortal.WebUI.Infrastructure
             ninjectKernel.Bind<IClientRepository>().To<ClientRepository>();
             ninjectKernel.Bind<IProductRepository>().To<ProductRepository>();
             ninjectKernel.Bind<IVendorRepository>().To<VendorRepository>();
+            ninjectKernel.Bind<IPriceListRepository>().To<PriceListRepository>();
             //ninjectKernel.Bind<UserManager<ApplicationUser>>().ToConstant(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())));
 
         }
