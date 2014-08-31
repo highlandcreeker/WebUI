@@ -13,7 +13,7 @@ using FBPortal.Domain.Concrete;
 using FBPortal.Domain.Abstract;
 using FBPortal.WebUI.Models;
 
-namespace FBPortal.WebUI.Controllers
+namespace FBPortal.WebUI.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {

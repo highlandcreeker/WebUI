@@ -14,7 +14,7 @@ using FBPortal.WebUI.Models;
 using FBPortal.WebUI.Extensions;
 
 
-namespace FBPortal.WebUI.Controllers
+namespace FBPortal.WebUI.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Administrator")]
     public class ClientController : Controller

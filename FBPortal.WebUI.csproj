@@ -176,15 +176,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\TestController.cs" />
     <Compile Include="Binder\AppUserModelBinder.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\InvoiceController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\PriceListController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\VendorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VendorController.cs" />
     <Compile Include="Extensions\Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -192,9 +193,9 @@
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ClientViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\ClientViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
-    <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -207,6 +208,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Test\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -245,27 +248,27 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\ClientSummary.cshtml" />
-    <Content Include="Views\Client\Delete.cshtml" />
-    <Content Include="Views\Client\Invoices.cshtml" />
-    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Client\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Client\Invoices.cshtml" />
+    <Content Include="Areas\Admin\Views\Client\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_AccountLayout.cshtml" />
-    <Content Include="Views\Invoice\Create.cshtml" />
-    <Content Include="Views\Client\CreateInvoice.cshtml" />
-    <Content Include="Views\Client\Edit.cshtml" />
-    <Content Include="Views\Client\Create.cshtml" />
-    <Content Include="Views\Client\Expenses.cshtml" />
-    <Content Include="Views\Vendor\Create.cshtml" />
-    <Content Include="Views\Vendor\Delete.cshtml" />
-    <Content Include="Views\Vendor\Details.cshtml" />
-    <Content Include="Views\Vendor\Edit.cshtml" />
-    <Content Include="Views\Vendor\Index.cshtml" />
-    <Content Include="Views\Product\Create.cshtml" />
-    <Content Include="Views\Product\Delete.cshtml" />
-    <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Views\Product\Edit.cshtml" />
-    <Content Include="Views\Product\List.cshtml" />
-    <Content Include="Views\Shared\ProductSummary.cshtml" />
+    <Content Include="Areas\Admin\Views\Invoice\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Client\CreateInvoice.cshtml" />
+    <Content Include="Areas\Admin\Views\Client\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Client\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Client\Expenses.cshtml" />
+    <Content Include="Areas\Admin\Views\Vendor\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Vendor\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Vendor\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Vendor\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Vendor\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\ProductSummary.cshtml" />
     <Content Include="Views\PriceList\Create.cshtml" />
     <Content Include="Views\PriceList\Delete.cshtml" />
     <Content Include="Views\PriceList\Details.cshtml" />
@@ -274,8 +277,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Base\" />
-    <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

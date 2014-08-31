@@ -12,7 +12,7 @@ using FBPortal.Domain.Entities;
 using FBPortal.Domain.Concrete;
 using FBPortal.Domain.Abstract;
 
-namespace FBPortal.WebUI.Controllers
+namespace FBPortal.WebUI.Areas.Admin.Controllers
 {
     public class VendorController : Controller
     {

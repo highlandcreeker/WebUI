@@ -7,7 +7,7 @@ using FBPortal.Domain.Entities;
 using FBPortal.Domain.Abstract;
 using System.Threading.Tasks;
 
-namespace FBPortal.WebUI.Controllers
+namespace FBPortal.WebUI.Areas.Admin.Controllers
 {
     public class InvoiceController : Controller
     {

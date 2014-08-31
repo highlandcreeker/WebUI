@@ -53,8 +53,8 @@ namespace FBPortal.WebUI.Controllers
 
                     if (string.IsNullOrEmpty(returnUrl) || (returnUrl.Equals("/")))
                     {
-                        if (user.Roles.Where(r => r.Role.Name.ToLower() == "administrator").Any()) { return RedirectToAction("index", "client"); }
-                        if (user.Roles.Where(r => r.Role.Name.ToLower() == "user").Any()) { return RedirectToAction("index", "Home"); }
+                        if (user.Roles.Where(r => r.Role.Name.ToLower() == "administrator").Any()) { return RedirectToAction("Index", "Admin/Client"); }
+                        if (user.Roles.Where(r => r.Role.Name.ToLower() == "user").Any()) { return RedirectToAction("Index", "Home"); }
                     }
                     else
                     {
